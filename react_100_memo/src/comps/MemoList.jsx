@@ -1,4 +1,5 @@
-const MemoList = () => {
+const MemoList = ({ memoList }) => {
+  const viewList = memoList.map((item) => <li>{item.memo}</li>);
   return (
     <div className="aside">
       <div className="date">
@@ -6,11 +7,7 @@ const MemoList = () => {
         <input type="text" value="09:03:50" />
         <input type="button" value="새로작성" />
       </div>
-      <ul>
-        <li>메모</li>
-        <li>메모</li>
-        <li>ㅇㄴ 아까랑 뭐가 다른건데</li>
-      </ul>
+      <ul>{viewList}</ul>
     </div>
   );
 };

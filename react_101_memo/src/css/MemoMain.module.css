@@ -8,11 +8,15 @@ React 에서 사용한느 표준 HTML 과 다른 형태의 css
 .main {
   width: 50vw;
   margin: 10px auto;
-  border: 1px solid #ddd;
+
   display: flex;
+  gap: 5px;
 }
 
 .aside {
-  border: 1px solid #aaa;
+  padding: 5px;
   flex: 1;
+  &:nth-of-type(1) {
+    border-right: 1px solid #ddd;
+  }
 }
