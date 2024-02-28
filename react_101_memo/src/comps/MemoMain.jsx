@@ -16,6 +16,7 @@ const MemoMain = () => {
   //메모 1개를 처리할 state
   const [memo, setMemo] = useState({
     m_seq: 0,
+    m_id: "UUID",
     m_author: "callor@callor.com",
     m_date: moment().format("YYYY-MM-DD"),
     m_time: moment().format("HH:mm:ss"),
@@ -28,7 +29,7 @@ const MemoMain = () => {
   const [memoList, setMemoList] = useState([]);
 
   const memoInsert = () => {
-    const newMemoList = [...memoList, memo];
+    const newMemoList = [...memoList, { ...memo, m_date: moment().format("YYYY-MM-DD"), m_time: moment().format("HH:mm:ss") }];
     setMemoList([...newMemoList]);
     setMemo({ ...memo, m_date: moment().format("YYYY-MM-DD"), m_time: moment().format("HH:mm:ss"), m_subject: "", m_memo: "", m_image: "" });
   };
