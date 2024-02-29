@@ -1,0 +1,22 @@
+.ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.ul a {
+  display: block;
+  width: 80%;
+  padding: 12px 10px 5px 10px;
+  margin: 10px auto;
+  text-align: right;
+  border-bottom: 2px solid transparent;
+  transition: 0.7s;
+}
+
+.ul a:hover {
+  border-bottom: 3px solid rgb(0, 153, 224);
+}
+
+.active {
+  color: blue;
+}
