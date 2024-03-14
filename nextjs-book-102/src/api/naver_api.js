@@ -20,7 +20,7 @@ export const getNaverBooks = async (search) => {
   };
 
   const response = await fetch(
-    `${NAVER_BOOK_URL}?query=${search || "java"}`,
+    `${NAVER_BOOK_URL}?query=${search || ""}`,
     fetchOption
   );
   const books = await response.json();
