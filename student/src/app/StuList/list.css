@@ -1,0 +1,26 @@
+table {
+  width: 80%;
+  border-collapse: collapse; /* 테이블 셀 간의 간격을 없애고 경계선을 합침 */
+  margin: 20px;
+
+  th {
+    text-align: center;
+    width: 50%;
+    background-color: darkturquoise;
+    border: 2px solid #ccc;
+  }
+  td {
+    border: 2px solid #ccc;
+  }
+}
+tr {
+  &:hover {
+    background-color: rgb(242, 242, 253);
+  }
+}
+li {
+  margin-top: 5px;
+}
+table.sub {
+  text-align: center;
+}

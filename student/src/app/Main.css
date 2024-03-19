@@ -1,0 +1,45 @@
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+.main {
+  display: flex;
+  gap: 3px;
+  width: 80%;
+  margin: 30px auto;
+  padding: 30px;
+  aside {
+    width: 100%;
+    padding: 1.6rem;
+  }
+
+  aside.list {
+    border-right: 1px solid black;
+  }
+  aside.r {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+input,
+select {
+  display: block;
+  width: 70%;
+  font-weight: 900;
+  padding: 10px;
+  margin: 5px;
+  outline-style: #ddd;
+  border: 1px solid #aaa;
+}
+
+button {
+  width: 20%;
+  background-color: darkturquoise;
+  padding: 10px;
+  margin: 15px;
+  margin-left: auto;
+  &:hover {
+    background-color: darkcyan;
+  }
+}

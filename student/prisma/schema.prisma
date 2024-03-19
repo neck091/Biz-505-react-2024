@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model tbl_stu {
+  s_num   String       @id
+  s_name  String
+  s_dept  String
+  s_grade String
+  s_tel   String
+  s_addr  String
+
+  tbl_stu_sub tbl_stu_sub[]
+}
+
+model tbl_sub {
+  s_code String       @id
+  s_sub  String
+
+  tbl_stu_sub tbl_stu_sub[]
+}
+
+model tbl_stu_sub {
+  r_snum   String
+  r_scode  String
+  result   String
+
+  @@id([r_snum, r_scode, result])
+  fk_stu   tbl_stu   @relation(fields: [r_snum], references: [s_num])
+  fk_sub   tbl_sub   @relation(fields: [r_scode], references: [s_code])
+}
