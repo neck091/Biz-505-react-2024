@@ -1,0 +1,46 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+
+  justify-content: center;
+  height: 100%;
+}
+.box div {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.box input {
+  flex: 3;
+  width: 100%;
+  display: inline-block;
+
+  font-weight: 900;
+  margin: 5px;
+}
+
+.box button {
+  flex: 1;
+  display: inline-block;
+  padding: 5px;
+  font-weight: 900;
+  margin: 5px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+}
+
+.ct {
+  text-align: center;
+}
+.tbl {
+  width: 100%;
+  margin: 5px;
+}
+
+.tbl tr:nth-child(1) {
+  background-color: blue;
+  color: azure;
+}

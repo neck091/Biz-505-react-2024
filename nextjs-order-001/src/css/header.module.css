@@ -1,0 +1,43 @@
+.header {
+  padding: 3rem;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 1px black;
+  background-image: url("../images/paper.gif");
+}
+
+.nav {
+  background-color: black;
+  color: white;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav li {
+  margin: 5px;
+  margin-bottom: 8px;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 8px 12px 1px 12px;
+
+  color: white;
+  border-bottom: 3px solid black;
+  transition: 0.7s ease-in-out;
+}
+
+.nav a:hover {
+  border-bottom: 3px solid greenyellow;
+}
+
+.nav .order {
+  margin-left: auto;
+}
+
+.nav .user {
+  margin-left: auto;
+}
