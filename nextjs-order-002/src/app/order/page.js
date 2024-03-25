@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import css from "@/src/css/order.main.module.css";
+import css from "@/src/css/order.module.css";
 import { useEffect, useState } from "react";
 import { selectAll } from "../api/order";
 
