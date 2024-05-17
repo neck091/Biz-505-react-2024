@@ -19,7 +19,7 @@ const SpellResult = ({ text, setRes }) => {
     fetchData();
   }, [text]);
 
-  return <div id="displayText">{sres}</div>;
+  return <div id="displayText"></div>;
 };
 
 export default SpellResult;

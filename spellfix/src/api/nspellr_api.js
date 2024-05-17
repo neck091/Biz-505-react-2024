@@ -2,7 +2,7 @@
 import https from "https";
 
 // 패스포트 키
-const passportKey = "7a4261de29cbc4dd354c734990fa09f435280cef";
+const passportKey = "00eb157a0b1a05b6b7c633369935a9adcefa53e9";
 
 export const spellCheck = async (text) => {
   try {
