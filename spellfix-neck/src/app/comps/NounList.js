@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { fetchNouns } from "@/api/nouns"; // 경로를 실제 파일 위치에 맞게 조정하세요.
 
-const NounList = ({ text }) => {
+const NounList = ({ text, setWord }) => {
   const [nouns, setNouns] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,9 @@ const NounList = ({ text }) => {
       <h3>추천 단어</h3>
       <ul id="nounList" className="nounList">
         {nouns.map((noun, index) => (
-          <li key={index}>{noun}</li>
+          <li key={index} onClick={() => setWord(noun)}>
+            {noun}
+          </li>
         ))}
       </ul>
     </div>

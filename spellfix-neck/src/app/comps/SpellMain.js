@@ -4,10 +4,13 @@ import { useState } from "react";
 import SpellText from "./SpellText";
 import SpellResult from "./SpellResult";
 import NounList from "./NounList";
+import Modal from "./Modal";
 
 const SpellMain = () => {
   const [text, setText] = useState("");
   const [res, setRes] = useState("");
+  const [word, setWord] = useState("");
+
   return (
     <div className="main">
       <header>
@@ -44,13 +47,12 @@ const SpellMain = () => {
           </div>
         </aside>
         <aside className="right">
-          <NounList text={text} />
-          <div id="myModal" className="modal">
-            <div className="modal-content">
-              <span className="close">&times;</span>
-              <ul id="modalWordsList"></ul>
-            </div>
-          </div>
+          <NounList text={text} setWord={setWord} />
+          {/* 조건부 렌더링 
+        word state 값이 "" 또는 null 등이 아니면 
+        Modal을 화면에 표현하라
+        */}
+          {word && <Modal word={word} />}
         </aside>
       </section>
     </div>
