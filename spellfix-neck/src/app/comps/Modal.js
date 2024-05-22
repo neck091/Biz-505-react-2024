@@ -6,24 +6,28 @@ const Modal = ({ word }) => {
   const [synonyms, setSynonyms] = useState([]);
 
   useEffect(() => {
-    async function fetchSynonyms() {
+    const fetchSynonyms = async () => {
       try {
         const synonyms = await getSynonyms(word);
         setSynonyms(synonyms);
       } catch (error) {
         console.error("Error fetching synonyms:", error);
       }
-    }
+    };
 
     fetchSynonyms();
-  }, []);
+  }, [word]);
 
   return (
-    <div id="myModal" className="modal">
+    <div>
       <div className="modal-content">
         <span className="close">&times;</span>
         <h2>{word}의 유의어</h2>
-        <ul id="modalWordsList"></ul>
+        <ul id="modalWordsList">
+          {synonyms.map((synonym, index) => (
+            <li key={index}>{synonym}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import SpellText from "./SpellText";
 import SpellResult from "./SpellResult";
 import NounList from "./NounList";
 import Modal from "./Modal";
+import Test from "./Test";
 
 const SpellMain = () => {
   const [text, setText] = useState("");
@@ -48,11 +49,8 @@ const SpellMain = () => {
         </aside>
         <aside className="right">
           <NounList text={text} setWord={setWord} />
-          {/* 조건부 렌더링 
-        word state 값이 "" 또는 null 등이 아니면 
-        Modal을 화면에 표현하라
-        */}
-          {word && <Modal word={word} />}
+          <Modal word={word} />
+          {/* <Test word={word} /> */}
         </aside>
       </section>
     </div>

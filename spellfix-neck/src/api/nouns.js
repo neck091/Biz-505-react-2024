@@ -37,7 +37,7 @@ export async function fetchNouns(text) {
           }
         });
       });
-      console.log("Nouns:", nouns);
+
       return nouns;
     } else {
       console.error("Error:", result.reason);
