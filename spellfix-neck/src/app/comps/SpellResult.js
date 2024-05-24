@@ -15,7 +15,7 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: "6010591716c5633888b73834fe89367c4499cfaa", // 임시 passportKey
+              passportKey: "c5800e102b7248f8d1898c9aaef5f82c72c5fa51", // 임시 passportKey
               q: textToCheck, // 현재 textarea에 있는 값으로 요청을 보냄
               color_blindness: 0,
             }),

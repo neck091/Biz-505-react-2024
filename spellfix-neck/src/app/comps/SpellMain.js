@@ -1,16 +1,40 @@
 "use client";
-import { useState } from "react";
-
+import React, { useState } from "react";
 import SpellText from "./SpellText";
 import SpellResult from "./SpellResult";
 import NounList from "./NounList";
 import Modal from "./Modal";
-import Test from "./Test";
 
 const SpellMain = () => {
   const [text, setText] = useState("");
-  const [res, setRes] = useState("");
   const [word, setWord] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleWordClick = (clickedWord) => {
+    setWord(clickedWord);
+    setIsModalOpen(true);
+  };
+
+  const handleSynonymClick = (synonym) => {
+    setText((prevText) => {
+      let replacedText = prevText;
+      let index = replacedText.indexOf(word);
+      while (index !== -1) {
+        replacedText =
+          replacedText.substring(0, index) +
+          synonym +
+          replacedText.substring(index + word.length);
+        index = replacedText.indexOf(word, index + synonym.length);
+      }
+      console.log("Replaced text:", replacedText); // 대체된 텍스트 콘솔에 출력
+      return replacedText;
+    });
+    setIsModalOpen(false); // 모달 닫기
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false); // 모달 닫기
+  };
 
   return (
     <div className="main">
@@ -22,7 +46,7 @@ const SpellMain = () => {
           <SpellText text={text} setText={setText} />
           <div className="section ggi">
             <h3>맞춤법 검사 결과</h3>
-            <SpellResult text={text} setRes={setRes} />
+            <SpellResult text={text} />
             <div className="check_area">
               <dl>
                 <dt className="blind">붉은색 텍스트</dt>
@@ -48,12 +72,18 @@ const SpellMain = () => {
           </div>
         </aside>
         <aside className="right">
-          <NounList text={text} setWord={setWord} />
-          <Modal word={word} />
-          {/* <Test word={word} /> */}
+          <NounList text={text} setWord={handleWordClick} />
+          {isModalOpen && (
+            <Modal
+              word={word}
+              onSynonymClick={handleSynonymClick}
+              onClose={handleModalClose}
+            />
+          )}
         </aside>
       </section>
     </div>
   );
 };
+
 export default SpellMain;

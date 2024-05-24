@@ -1,21 +1,13 @@
-"use client";
+"client";
+import React from "react";
 
 const SpellText = ({ text, setText }) => {
-  const debounce = (callback, delay = 200) => {
-    let debounceTimer;
-    return (...args) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(
-        () => callback.apply(this, args),
-        delay
-      );
-    };
+  const handleChange = (e) => {
+    const newText = e.target.value;
+    setText(newText);
+    console.log("Text changed to:", newText); // 변경된 텍스트를 출력합니다.
   };
 
-  const onChangeHandler = (e) => {
-    setText(e.target.value);
-  };
-  const onDebouncehander = debounce(onChangeHandler, 100);
   return (
     <div className="section">
       <h3>글씨 입력하기</h3>
@@ -24,12 +16,13 @@ const SpellText = ({ text, setText }) => {
           id="inputText"
           name="text"
           rows="5"
-          defaultValue={text}
-          onChange={onDebouncehander}
+          value={text} // 수정된 부분: value 속성을 text 상태로 설정
+          onChange={handleChange}
         ></textarea>
         <p>
-          현재 입력한 글자 수: <span id="currentChar"></span> / 최대
-          글자 수: <span id="maxChar"></span>
+          현재 입력한 글자 수:{" "}
+          <span id="currentChar">{text.length}</span> / 최대 글자 수:{" "}
+          <span id="maxChar"></span>
         </p>
         <button id="showResultBtn" type="submit">
           결과 보기
@@ -39,4 +32,5 @@ const SpellText = ({ text, setText }) => {
     </div>
   );
 };
+
 export default SpellText;

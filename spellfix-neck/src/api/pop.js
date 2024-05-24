@@ -29,7 +29,11 @@ export async function getSynonyms(word) {
     // 유의어를 가진 li 태그를 찾아서 단어 목록에 추가
     $("li").each((_, element) => {
       const text = $(element).text();
-      if (text.includes("유의어")) {
+      if (
+        text.includes("유의어") ||
+        text.includes("합성어") ||
+        text.includes("파생어")
+      ) {
         const synonyms = text.split(":")[1].trim().split(", ");
         synonyms.forEach((synonym) => {
           words.push(synonym);
