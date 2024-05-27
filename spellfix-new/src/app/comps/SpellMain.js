@@ -4,6 +4,7 @@ import SpellText from "./SpellText";
 import SpellResult from "./SpellResult";
 import NounList from "./NounList";
 import Modal from "./Modal";
+import Qz from "./Qz";
 
 const SpellMain = () => {
   const [text, setText] = useState("");
@@ -80,6 +81,7 @@ const SpellMain = () => {
               onClose={handleModalClose}
             />
           )}
+          <Qz></Qz>
         </aside>
       </section>
     </div>
