@@ -1,0 +1,748 @@
+.cs_n_korean_quiz {
+  overflow: hidden;
+}
+
+.cs_n_korean_quiz .sct_ct #mflick {
+  overflow: hidden;
+  height: 100%;
+}
+
+.cs_n_korean_quiz .flick-ct {
+  width: 100%;
+  position: relative;
+}
+
+.cs_n_korean_quiz .quiz_content_bx {
+  overflow: hidden;
+  position: relative;
+}
+
+.cs_n_korean_quiz .sct_ct {
+  background: rgba(var(--bgBlock), 1);
+  text-align: center;
+}
+
+.cs_n_korean_quiz .tit_area {
+  position: relative;
+  padding: 21.5px 0 0;
+}
+
+.cs_n_korean_quiz .tit_area h4 {
+  margin-bottom: 7px;
+  font-size: 1.5rem;
+  color: rgba(var(--gray50), 1);
+  font-weight: 400;
+}
+
+.cs_korean_quiz .sct_correct .tit_area .quiz_txt p {
+  color: rgba(var(--gray0), 1);
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  margin-bottom: 8px;
+  padding: 0 50px;
+}
+
+.cs_n_korean_quiz .tit_area .tit {
+  font-size: 1.5rem;
+  color: rgba(var(--gray50), 1);
+  font-weight: 400;
+}
+
+.cs_n_korean_quiz .tit_area .quiz_txt {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs_n_korean_quiz .tit_area .quiz_txt strong {
+  display: block;
+  font-size: 2.7rem;
+  color: rgba(var(--gray20), 1);
+  line-height: 3.4rem;
+  font-weight: 400;
+  padding: 7px 63px 17px;
+}
+
+.cs_n_korean_quiz .btn_prev {
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  left: 16px;
+  margin-top: -20px;
+}
+
+.cs_n_korean_quiz .btn_prev:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  content: "";
+}
+
+.cs_n_korean_quiz .btn_prev.off:before {
+  background-position: -64px -143px;
+}
+
+.cs_n_korean_quiz .btn_prev.off {
+  cursor: default;
+}
+
+.cs_n_korean_quiz .btn_next {
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  right: 16px;
+  margin-top: -20px;
+}
+
+.cs_n_korean_quiz .btn_next:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  transform: rotate(180deg);
+  content: "";
+}
+
+.cs_n_korean_quiz .btn_next.off:after {
+  background-position: -64px -143px;
+}
+
+.cs_n_korean_quiz .btn_next.off {
+  cursor: default;
+}
+
+.cs_n_korean_quiz .slt_area {
+  position: relative;
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst {
+  padding: 0 16px 16px;
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst li {
+  position: relative;
+  text-align: left;
+  margin: 0 0 6px;
+  min-height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(var(--gray95), 1);
+  box-sizing: border-box;
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst li:last-child {
+  margin-bottom: 0;
+}
+
+.cs_n_korean_quiz .sct_saying .slt_area .answer_lst {
+  overflow: hidden;
+}
+
+.cs_n_korean_quiz .sct_saying .slt_area .answer_lst li:first-child,
+.cs_n_korean_quiz
+  .sct_saying
+  .slt_area
+  .answer_lst
+  li:first-child
+  + li {
+  margin-top: 0;
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst a {
+  display: block;
+  font-size: 18px;
+  width: 100%;
+  min-height: 50px;
+  color: rgba(var(--gray20), 1);
+  padding: 15px 53px 14px 13px;
+  line-height: 2.2rem;
+  box-sizing: border-box;
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst li:before {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  margin-top: -13px;
+  width: 25px;
+  height: 25px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  content: "";
+}
+
+.cs_n_korean_quiz .slt_area .answer_lst li.on:before {
+  background-position: -29px -42px;
+}
+
+.cs_n_korean_quiz .slt_area.correct:before,
+.cs_n_korean_quiz .slt_area.wrong:before {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 127px;
+  height: 127px;
+  margin-top: -8px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
+  overflow: hidden;
+  color: transparent;
+  -webkit-background-size: 126px 270px;
+  background-size: 126px 270px;
+  content: "";
+}
+
+.cs_n_korean_quiz .slt_area.wrong .answer_lst li:before,
+.cs_n_korean_quiz .slt_area.correct .answer_lst li:before {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  margin-top: -13px;
+  width: 25px;
+  height: 25px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  content: "";
+}
+
+.cs_n_korean_quiz .slt_area.correct .answer_lst li.on:before {
+  background-position: -29px -42px;
+}
+
+.cs_n_korean_quiz .slt_area.wrong:before {
+  background-position: 0 -136px;
+}
+
+.cs_n_korean_quiz .slt_area.wrong .answer_lst li.on:before {
+  background-position: -29px -42px;
+}
+
+.cs_n_korean_quiz .quiz_txt .quistion {
+  display: inline-block;
+  width: 37px;
+  height: 23px;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--gray80), 1);
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  vertical-align: top;
+  margin: 5px 5px 0;
+}
+
+.cs_n_korean_quiz .sct_correct .tit_area .quiz_txt strong {
+  color: rgba(var(--searchGreen), 1);
+  font-size: 2.7rem;
+  padding-bottom: 5px;
+  padding-top: 0;
+}
+
+.cs_n_korean_quiz .sct_correct .tit_area .quiz_txt p {
+  color: rgba(var(--gray20), 1);
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  margin-bottom: 8px;
+  padding: 0 63px;
+}
+
+.cs_n_korean_quiz .sct_correct .btn_more_dsc {
+  display: inline-block;
+  color: rgba(var(--gray20), 1);
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--gray80), 1);
+  padding: 5px 12px;
+  margin-bottom: 21px;
+}
+
+.cs_n_korean_quiz .sct_correct .btn_more_dsc span:after {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  width: 5px;
+  height: 9px;
+  margin: 6px 0 0 3px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+}
+
+.cs_n_korean_quiz
+  .sct_correct
+  .tit_area
+  .feedback
+  + .quiz_txt
+  strong {
+  padding-top: 6px;
+}
+
+.cs_n_korean_quiz .graph_area {
+  position: relative;
+  overflow: hidden;
+  background: rgba(var(--gray95), 1);
+  margin: 0 16px 16px;
+  border-radius: 8px;
+  color: rgba(var(--gray30), 1);
+  font-size: 1.7rem;
+  padding-bottom: 4px;
+}
+
+.cs_n_korean_quiz .graph_area strong {
+  display: block;
+  margin: 16px 0 1px 18px;
+  padding-bottom: 1px;
+  color: rgba(var(--gray50), 1);
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+.cs_n_korean_quiz .graph_area ul {
+  margin: 0 18px;
+}
+
+.cs_n_korean_quiz .graph_area ul li {
+  position: relative;
+  height: 54px;
+  margin-top: -1px;
+  margin-bottom: 5px;
+  text-align: left;
+  display: table;
+  width: 100%;
+}
+
+.cs_n_korean_quiz .graph_area ul li .answer_list {
+  position: relative;
+  padding: 8px 0 19px 0;
+  color: rgba(var(--gray20), 1);
+  font-weight: normal;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.cs_n_korean_quiz .graph_area ul li + li {
+  margin-top: -6px;
+  margin-bottom: 0;
+}
+
+.cs_n_korean_quiz .graph_area ul li + li .answer_list {
+  padding: 8px 0 24px 0;
+}
+
+.cs_n_korean_quiz .graph_area ul li .answer_text {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-right: 54px;
+  box-sizing: border-box;
+}
+
+.cs_n_korean_quiz .graph_area ul li:first-child .answer_list {
+  padding-top: 11px;
+}
+
+.cs_n_korean_quiz .graph_area ul li .percent {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -13px;
+  font-size: 1.9rem;
+  color: rgba(var(--gray20), 1);
+  letter-spacing: 0;
+}
+
+.cs_n_korean_quiz .graph_area ul li.on .answer_list {
+  color: rgba(var(--searchGreen), 1);
+}
+
+.cs_n_korean_quiz .graph_area ul li.on .percent {
+  color: rgba(var(--searchGreen), 1);
+}
+
+.cs_n_korean_quiz .graph_area ul li .percent em {
+  font-weight: bold;
+}
+
+.cs_n_korean_quiz .graph_area ul li .grp_bx {
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 14px;
+  width: 100%;
+  height: 2px;
+  background: rgba(var(--gray80), 1);
+}
+
+.cs_n_korean_quiz .graph_area ul li:first-child .grp_bx {
+  bottom: 9px;
+}
+
+.cs_n_korean_quiz .graph_area .grp_bx .grp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: rgba(var(--gray20), 1);
+}
+
+.cs_n_korean_quiz .graph_area li.on .grp_bx .grp {
+  background: rgba(var(--searchGreen), 1);
+}
+
+.cs_n_korean_quiz .sct_correct .gr_btn {
+  border-top: 0;
+  margin-top: 0;
+}
+
+.cs_n_korean_quiz .sct_correct .cds_bundle.ar {
+  position: absolute;
+  float: none;
+  top: 2px;
+  right: 0;
+}
+
+.cs_n_korean_quiz .gr_btn {
+  position: relative;
+  overflow: hidden;
+  font-size: 1.2rem;
+  color: rgba(var(--gray50), 1);
+  margin: 0 16px;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_lke {
+  display: block;
+  float: left;
+  position: relative;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_lke .api_btn_like {
+  border: 0;
+  font-size: 1.2rem;
+  line-height: 2.3rem;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_lke .api_btn_like .api_like_ico {
+  position: relative;
+  top: 2px;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_bundle {
+  display: block;
+  overflow: hidden;
+  float: left;
+  padding: 0 0 0;
+  box-sizing: border-box;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_bundle .cds_comment {
+  float: left;
+  position: relative;
+  min-width: 14px;
+  height: 25px;
+  padding: 0 0 0 1px;
+  z-index: 100;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_bundle .imh {
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  padding-right: 3px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+}
+
+.cs_n_korean_quiz .gr_btn .cds_bundle .snd {
+  width: 20px;
+  height: 17px;
+  margin-top: 2px;
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+  margin-left: 1px;
+}
+
+.cs_n_korean_quiz .gr_btn.top_line {
+  border-top: 1px solid #f0f0f0;
+  margin-top: 25px;
+}
+
+.cs_n_korean_quiz .cm_ncs__btn_like {
+  display: block;
+  padding: 0 16px 0 0;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: rgba(var(--gray50), 1);
+  text-align: center;
+}
+
+.cs_n_korean_quiz .cm_ncs__btn_like .arr {
+  display: block;
+  white-space: nowrap;
+}
+
+.cs_n_korean_quiz .cm_ncs__btn_like .like_ico {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  width: 17px;
+  height: 14px;
+  margin-right: 2px;
+
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+}
+
+.cs_n_korean_quiz .cm_ncs__btn_like.f_heart .like_ico {
+  background-position: -29px -18px;
+}
+
+.cs_n_korean_quiz .cm_ncs__btn_like .like_ico.ani_on {
+  -webkit-animation: ncs_ico_like 0.25s ease-out;
+  animation: ncs_ico_like 0.25s ease-out;
+}
+
+@-webkit-keyframes ncs_ico_like {
+  0%,
+  100% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.7);
+  }
+}
+
+@keyframes ncs_ico_like {
+  0%,
+  100% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.7);
+  }
+}
+
+.cs_n_korean_quiz .info_area {
+  position: relative;
+  margin: 0 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(var(--gray90), 1);
+  font-size: 0;
+  text-align: left;
+}
+
+.cs_n_korean_quiz .info_area .info_text {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: rgba(var(--gray50), 1);
+  line-height: 1.9rem;
+  letter-spacing: -0.3px;
+  vertical-align: middle;
+}
+
+.cs_n_korean_quiz .info_area .api_ico_alert {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.cs_n_korean_quiz .info_area .ly_api_info {
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 42px;
+}
+
+.cs_n_korean_quiz .guide_sct {
+  overflow: hidden;
+  position: relative;
+  margin-top: -1px;
+  padding: 0 16px;
+}
+
+.cs_n_korean_quiz .guide_sct dl {
+  overflow: hidden;
+  position: relative;
+  padding: 16px 0 16px 26px;
+  border-top: 1px solid rgba(var(--gray90), 1);
+}
+
+.cs_n_korean_quiz .guide_sct dl dt {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+  color: rgba(var(--gray50), 1);
+}
+
+.cs_n_korean_quiz .guide_sct dl dd {
+  margin-left: 11.5px;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+  overflow: hidden;
+  color: rgba(var(--gray20), 1);
+  text-align: left;
+}
+
+.cs_n_korean_quiz .guide_sct dl dd a {
+  display: inline-block;
+  color: rgba(var(--blueLink), 1);
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.cs_n_korean_quiz .sct_ct .tit_area strong > em {
+  font-weight: bold;
+}
+
+.cs_n_korean_quiz .sct_ct .feedback_bx {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.cs_n_korean_quiz .sct_ct .feedback_bx > img {
+  display: block;
+  margin: 0 auto;
+}
+
+.cs_n_korean_quiz .sct_ct .feedback_bx .btn_more {
+  display: inline-block;
+  padding: 3px 5px;
+  color: rgba(var(--gray30), 1);
+  border: 1px solid #e6e6e6;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.cs_n_korean_quiz .mr_banner {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-top: 9.5px;
+  background: #0dba41;
+  text-align: center;
+}
+
+.cs_n_korean_quiz .korean_quiz {
+  position: relative;
+  vertical-align: top;
+}
+
+.cs_n_korean_quiz .ico_answer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 127px;
+  height: 127px;
+  margin-top: -5px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
+  overflow: hidden;
+  color: transparent;
+
+  -webkit-background-size: 126px 270px;
+  background-size: 126px 270px;
+}
+
+.cs_n_korean_quiz .ico_answer.correct {
+  background-position: 0 0;
+}
+
+.cs_n_korean_quiz .ico_answer.wrong {
+  background-position: 0 -137px;
+}
+
+.cs_n_korean_quiz .exe_fl {
+  padding: 16px 0;
+}
+
+.cs_n_korean_quiz .exe_fl .cmm_pgs {
+  height: 6px;
+  line-height: 6px;
+}
+
+.cs_n_korean_quiz .lst_more {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 100%;
+  padding: 0 28px;
+  margin-left: 11px;
+  border-left: 1px solid rgba(var(--gray90), 1);
+}
+
+.cs_n_korean_quiz .lst_more .more_info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  color: rgba(var(--gray30), 1);
+  transform: translateY(-50%);
+}
+
+.cs_n_korean_quiz .lst_more .more_info .loader {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 6px;
+
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+}
+
+.cs_n_korean_quiz .lst_more .more_info .loader .spcm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+
+  background-size: 150px 190px;
+  -webkit-background-size: 150px 190px;
+}
+
+.cs_n_korean_quiz .btn_area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  padding: 0 18px 0;
+  box-sizing: border-box;
+}
+
+.cs_n_korean_quiz .btn_area a {
+  flex: 1 1 auto;
+  display: block;
+  height: 42px;
+  line-height: 4.4rem;
+  color: rgba(var(--gray20), 1);
+  font-size: 1.5rem;
+  font-weight: normal;
+  border-radius: 8px;
+  background-color: rgba(var(--bgBlock), 1);
+  border: 1px solid rgba(var(--gray80), 1);
+}
+
+.cs_n_korean_quiz .btn_area + .gr_btn {
+  display: none;
+}
+
+.cs_n_korean_quiz .sct_question .korean_quiz.sct_correct .btn_next {
+  display: none;
+}
