@@ -1,17 +1,21 @@
-// SpellResult.js
-"use client";
-// SpellResult.js
-
 import { useEffect, useState, useRef } from "react";
-import { fetchData } from "@/api/pass"; // server.js에서 fetchPassportKey 함수 가져오기
+import { extractPassportKey } from "@/api/key";
 
-const SpellResult = ({ text }) => {
+const SpellResult = ({ text, setText }) => {
   const [sres, setSres] = useState("");
   const timerRef = useRef(null);
+  const passportKeyRef = useRef(null);
 
   useEffect(() => {
-    const fetchData = async (textToCheck, passportKey) => {
+    const fetchData = async (textToCheck) => {
       try {
+        if (!passportKeyRef.current) {
+          passportKeyRef.current = await extractPassportKey(); // API 키 추출
+          console.log(
+            "Extracted Passport Key:",
+            passportKeyRef.current
+          ); // API 키를 콘솔에 출력
+        }
         const response = await fetch(
           "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
           {
@@ -20,7 +24,7 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: passportKey,
+              passportKey: passportKeyRef.current,
               q: textToCheck,
               color_blindness: 0,
             }),
@@ -38,18 +42,9 @@ const SpellResult = ({ text }) => {
 
         setSres(result);
 
-        console.log(result); // 콘솔에 결과 출력
+        console.log("Spell Check Result:", result); // 결과를 콘솔에 출력
       } catch (error) {
         console.error("Error fetching data:", error);
-      }
-    };
-
-    const fetchDataWithKey = async (textToCheck) => {
-      try {
-        const passportKey = await fetchData(); // 서버에서 passportKey 가져오기
-        await fetchData(textToCheck, passportKey);
-      } catch (error) {
-        console.error("Error fetching passportKey:", error);
       }
     };
 
@@ -57,8 +52,8 @@ const SpellResult = ({ text }) => {
       const newText = event.target.value;
       clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => {
-        fetchDataWithKey(newText);
-      }, 800); // 800ms 후에 fetchDataWithKey 함수 호출
+        fetchData(newText);
+      }, 800);
     };
 
     const inputElement = document.getElementById("inputText");
@@ -70,9 +65,32 @@ const SpellResult = ({ text }) => {
     };
   }, []);
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .catch((error) =>
+        console.error("텍스트 복사 중 오류 발생:", error)
+      );
+  };
+
+  const handleDoubleClick = () => {
+    // 더블클릭 이벤트 처리 코드
+    const textWithoutHtml = sres.replace(/<[^>]*>?/gm, "");
+    copyToClipboard(textWithoutHtml);
+    alert("복사되었습니다.");
+  };
+
+  const handleClick = () => {
+    const textWithoutHtml = sres.replace(/<[^>]*>?/gm, "");
+    const newText = textWithoutHtml;
+    setText(newText);
+  };
+
   return (
     <div
       id="displayText"
+      onDoubleClick={handleDoubleClick}
+      onClick={handleClick}
       dangerouslySetInnerHTML={{ __html: sres }}
     ></div>
   );

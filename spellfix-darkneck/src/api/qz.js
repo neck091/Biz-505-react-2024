@@ -8,9 +8,7 @@ let page;
 
 // 브라우저 초기화 함수
 const initializeBrowser = async () => {
-  browser = await launch({
-    headless: true, // 백그라운드에서 브라우저 실행
-  });
+  browser = await launch();
   page = await browser.newPage(); // 새 페이지 생성
 };
 
@@ -33,34 +31,27 @@ const fetchUpdatedContent = async (elementName) => {
       { waitUntil: "networkidle2" }
     );
 
-    // 추가 대기 시간
-    await page.waitForTimeout(5000);
+    await page.evaluate((elementName) => {
+      const element = document.querySelector(elementName);
+      if (element) {
+        element.click(); // 특정 요소 클릭
+      }
+    }, elementName);
 
-    if (elementName) {
-      await page.evaluate((elementName) => {
-        const element = document.querySelector(elementName);
-        if (element) {
-          element.click(); // 특정 요소 클릭
-        }
-      }, elementName);
-    }
-
-    // 특정 요소만 추출하여 HTML 가져오기
-    const updatedHtml = await page.evaluate(() => {
-      const element = document.querySelector(
-        "#ct > section.sc.cs_n_korean_quiz.csm._cs_n_korean_quiz"
-      );
-      return element
-        ? element.outerHTML
-        : "<div>Element not found</div>";
-    });
-
-    // 페이지 전체의 CSS 가져오기
+    // 업데이트된 HTML 및 CSS 가져오기
+    const updatedHtml = await page.content();
     const updatedCss = await page.evaluate(() => {
-      const styles = Array.from(
-        document.querySelectorAll("style, link[rel='stylesheet']")
-      )
-        .map((style) => style.outerHTML)
+      const styles = Array.from(document.styleSheets)
+        .map((styleSheet) => {
+          try {
+            return Array.from(styleSheet.cssRules)
+              .map((cssRule) => cssRule.cssText)
+              .join("\n");
+          } catch (error) {
+            return null;
+          }
+        })
+        .filter((css) => css !== null)
         .join("\n");
       return styles;
     });

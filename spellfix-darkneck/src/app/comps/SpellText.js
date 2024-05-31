@@ -11,7 +11,7 @@ const SpellText = ({ text, setText }) => {
 
   return (
     <div className="section">
-      <h3>글씨 입력하기</h3>
+      <h3> 글씨 입력하기</h3>
       <form>
         <textarea
           id="inputText"
@@ -23,7 +23,7 @@ const SpellText = ({ text, setText }) => {
         <p>
           현재 입력한 글자 수:{" "}
           <span id="currentChar">{text.length}</span> / 최대 글자 수:
-          {" 300"}
+          300
           <span id="maxChar"></span>
         </p>
         <button className="delete">전부 지우기</button>
